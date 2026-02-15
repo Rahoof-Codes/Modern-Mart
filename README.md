@@ -41,7 +41,7 @@
 
 | Home Page | Product Page | Checkout Form |
 |:---:|:---:|:---:|
-| ![Home](https://via.placeholder.com/200x400?text=Home) | ![Product](https://via.placeholder.com/200x400?text=Product) | ![Checkout](https://via.placeholder.com/200x400?text=Form) |
+| ![Home](img/home.jpg/200x400?text=Home) | ![Product](https://via.placeholder.com/200x400?text=Product) | ![Checkout](https://via.placeholder.com/200x400?text=Form) |
 
 ---
 
