@@ -1,45 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>LuxeMart Fashion</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Mart — Shop Everything</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <div class="nav-top">
-      <div class="logo" onclick="renderHome()">Modern-Mart</div>
-      
-      <div class="icons">
-        <div class="icon-btn" onclick="renderWishlistPage()">
-          ♥ <span class="badge" id="wishlist-badge">0</span>
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar">
+    <a class="nav-logo" href="#"><span>Modern</span> Mart</a>
+    <div class="nav-search">
+      <span class="nav-search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search products…" autocomplete="off" />
+    </div>
+    <div class="nav-actions">
+      <button class="nav-btn" id="btn-open-wishlist" aria-label="Wishlist">
+        ♡ <span class="d-none-sm">Wishlist</span>
+        <span class="badge" id="wish-badge">0</span>
+      </button>
+      <button class="nav-btn nav-btn-cart" id="btn-open-cart" aria-label="Cart">
+        🛒 Cart
+        <span class="badge" id="cart-badge">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       CATEGORY QUICK NAV
+  ============================================================ -->
+  <div class="cat-nav">
+    <button class="cat-pill active" data-section="all">All Collections</button>
+    <button class="cat-pill" data-section="men">Men's</button>
+    <button class="cat-pill" data-section="ladies">Ladies'</button>
+    <button class="cat-pill" data-section="kids">Kids'</button>
+    <button class="cat-pill" data-sub="dress-m">Men's Dress</button>
+    <button class="cat-pill" data-sub="watch">Watches</button>
+    <button class="cat-pill" data-sub="shoes">Men's Shoes</button>
+    <button class="cat-pill" data-sub="dress-l">Ladies' Dress</button>
+    <button class="cat-pill" data-sub="jewels">Jewellery</button>
+    <button class="cat-pill" data-sub="slippers">Slippers</button>
+    <button class="cat-pill" data-sub="dress-k">Kids' Dress</button>
+    <button class="cat-pill" data-sub="toys">Toys</button>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">✦ New Season Arrivals</div>
+      <h1>Shop <em>Everything</em><br />You Love</h1>
+      <p>Curated fashion, accessories &amp; kids' essentials — all in one modern store.</p>
+      <a href="#men" class="hero-cta">Explore Collections ↓</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="main">
+
+    <!-- SEARCH RESULTS (dynamic) -->
+    <section id="search-results-section" class="collection-section">
+      <div class="section-header">
+        <div>
+          <div class="section-label" style="color:var(--clr-accent)">Search Results</div>
+          <h2 class="section-title" id="search-results-title">Showing results…</h2>
         </div>
-        <div class="icon-btn" onclick="renderCartPage()">
-          🛒 <span class="badge" id="cart-badge">0</span>
+      </div>
+      <div class="product-grid" id="search-results-grid"></div>
+    </section>
+
+    <!-- MEN'S COLLECTION -->
+    <section class="collection-section section-men" id="men">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="section-label">Collection 01</div>
+          <h2 class="section-title">Men's Collection</h2>
+        </div>
+        <div class="section-count" id="men-count"></div>
+      </div>
+      <div class="sub-tabs" data-section="men">
+        <button class="sub-tab active" data-sub="all">All</button>
+        <button class="sub-tab" data-sub="dress-m">Dress</button>
+        <button class="sub-tab" data-sub="watch">Watch</button>
+        <button class="sub-tab" data-sub="shoes">Shoes</button>
+      </div>
+      <div class="product-grid" id="grid-men"></div>
+    </section>
+
+    <!-- LADIES' COLLECTION -->
+    <section class="collection-section section-ladies" id="ladies">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="section-label">Collection 02</div>
+          <h2 class="section-title">Ladies' Collection</h2>
+        </div>
+        <div class="section-count" id="ladies-count"></div>
+      </div>
+      <div class="sub-tabs" data-section="ladies">
+        <button class="sub-tab active" data-sub="all">All</button>
+        <button class="sub-tab" data-sub="dress-l">Dress</button>
+        <button class="sub-tab" data-sub="jewels">Jewels</button>
+        <button class="sub-tab" data-sub="slippers">Slippers</button>
+      </div>
+      <div class="product-grid" id="grid-ladies"></div>
+    </section>
+
+    <!-- KIDS' COLLECTION -->
+    <section class="collection-section section-kids" id="kids">
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="section-label">Collection 03</div>
+          <h2 class="section-title">Kids' Collection</h2>
+        </div>
+        <div class="section-count" id="kids-count"></div>
+      </div>
+      <div class="sub-tabs" data-section="kids">
+        <button class="sub-tab active" data-sub="all">All</button>
+        <button class="sub-tab" data-sub="dress-k">Dress</button>
+        <button class="sub-tab" data-sub="toys">Toys</button>
+      </div>
+      <div class="product-grid" id="grid-kids"></div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-logo"><span>Modern</span> Mart</div>
+    <p>Men's · Ladies' · Kids' | Fashion &amp; Lifestyle</p>
+    <p style="margin-top:8px;font-size:11px;opacity:0.5">© 2025 Modern Mart. All rights reserved. Prices in Indian Rupees (₹).</p>
+  </footer>
+
+  <!-- ============================================================
+       CART SIDEBAR
+  ============================================================ -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2 class="cart-title">Your Cart 🛒</h2>
+      <button class="btn-close-cart" id="btn-close-cart">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items-container">
+      <!-- Populated by JS -->
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-amount" id="cart-total">₹0</span>
+      </div>
+      <button class="btn-checkout" id="btn-checkout">
+        Proceed to Checkout &nbsp;→
+      </button>
+      <button class="btn-clear-cart" id="btn-clear-cart">Clear Cart</button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       WISHLIST MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="wishlist-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 class="modal-title">Wishlist ♡</h2>
+        <button class="btn-close-cart" id="btn-close-wishlist">✕</button>
+      </div>
+      <div class="modal-body" id="wishlist-body">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CHECKOUT MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="checkout-overlay">
+    <div class="modal-box checkout-box">
+      <div class="modal-header">
+        <h2 class="modal-title">Place Your Order</h2>
+        <button class="btn-close-cart" id="btn-close-checkout">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Order summary -->
+        <div class="checkout-summary">
+          <div class="checkout-summary-title">Order Summary</div>
+          <div id="checkout-items-list"></div>
+          <div class="checkout-total-line">
+            <span>Total</span>
+            <span class="total-amt" id="checkout-total-display">₹0</span>
+          </div>
+        </div>
+        <!-- Customer form -->
+        <div class="checkout-form">
+          <div class="form-group">
+            <label class="form-label" for="cust-name">Your Name *</label>
+            <input class="form-input" id="cust-name" type="text" placeholder="e.g. Rahul Kumar" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cust-phone">Phone Number *</label>
+            <input class="form-input" id="cust-phone" type="tel" placeholder="e.g. 9876543210" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cust-address">Delivery Address *</label>
+            <textarea class="form-textarea" id="cust-address" placeholder="House/Flat No., Street, City, PIN Code"></textarea>
+          </div>
+          <button class="btn-place-order" id="btn-place-order">
+            <!-- WhatsApp icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Order via WhatsApp
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="cat-scroll-container">
-      <div class="cat-scroll">
-        <div class="pill active" id="pill-all" onclick="renderHome()">All</div>
-        <div class="pill" id="pill-Women" onclick="renderGrid('Women')">Women</div>
-        <div class="pill" id="pill-Men" onclick="renderGrid('Men')">Men</div>
-        <div class="pill" id="pill-Kids" onclick="renderGrid('Kids')">Kids</div>
-      </div>
-    </div>
-  </header>
+  <!-- ============================================================
+       TOAST CONTAINER
+  ============================================================ -->
+  <div class="toast-container" id="toast-container"></div>
 
-  <div id="main-content">
-    </div>
+  <!-- Back to top -->
+  <button class="btn-back-top" id="btn-back-top" aria-label="Back to top">↑</button>
 
-  <div id="product-modal" class="product-modal" style="display:none;"></div>
-
-  <div id="checkout-modal" class="checkout-modal" style="display:none;"></div>
-
-  <script src="script.js"></script>
-
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script src="script.js">script.js</script>
+  
 </body>
 </html>
