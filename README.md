@@ -1,6 +1,6 @@
 # Modern-Mart 🛍️ | WhatsApp E-Commerce Solution
 
-![Project Banner](./img/Home.jpg)
+
 **Modern-Mart** is a lightweight, mobile-first e-commerce web application designed for small businesses to sell fashion and lifestyle products. It features a modern, "App-like" UI similar to **Meesho/Myntra** and handles checkout seamlessly via **WhatsApp**, requiring zero backend infrastructure.
 
 ---
@@ -37,12 +37,7 @@
 
 ---
 
-## 📸 Screenshots
 
-| Home Page | Product Page | Checkout Form |
-|:---:|:---:|:---:|
-![Home](./img/Home.jpg) | ![Product](./img/Product.jpg) | ![Checkout](./img/Checkout.jpg) |
----
 
 ## ⚙️ Configuration
 
